@@ -1,0 +1,21 @@
+{
+    "name": "larium/framework",
+    "description": "",
+    "keywords": [""],
+    "type": "",
+    "license": "",
+    "authors": [
+        {
+            "name": "Andreas Kollaros",
+            "email": "andreaskollaros@ymail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "filp/whoops": "1.0.*"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "classmap": ["app", "app/Controller", "app/Model", "app/Provider", "lib"] 
+    }
+}

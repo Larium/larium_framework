@@ -1,0 +1,7 @@
+homepage:
+    pattern: '/:slug'
+    route: {controller: 'Default', action: 'indexAction'}
+    method: 'GET'
+page_show:
+    pattern: '/hello/world'
+    route: {controller: 'Default', action: 'showAction'}
