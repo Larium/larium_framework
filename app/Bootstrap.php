@@ -11,12 +11,13 @@ class Bootstrap
         // Session
         $app->addProvider(new SessionProvider());
 
+        //Error handler
+        $app->addProvider(new WhoopsProvider());
+
         //Auto render action
         $app->addProvider(new AutoRenderProvider());
 
         // Security
         $app->addProvider(new SecurityProvider());
-
-
     }
 }
