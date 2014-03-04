@@ -26,6 +26,5 @@ class DefaultController extends ActionController
 
     public function loginAction()
     {
-        return new Response('Login form');
     }
 }
