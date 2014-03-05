@@ -10,16 +10,13 @@ class WhoopsProvider implements ProviderInterface
 {
     public function register(App $app)
     {
-
+        $run     = new Run;
+        $handler = new PrettyPageHandler;
+        $run->pushHandler($handler);
+        $run->register();
     }
 
     public function boot(App $app)
     {
-        $app->registerCommand(WebHandler::ON_REQUEST, function($message) use ($app) {
-            $run     = new Run;
-            $handler = new PrettyPageHandler;
-            $run->pushHandler($handler);
-            $run->register();
-        });
     }
 }
