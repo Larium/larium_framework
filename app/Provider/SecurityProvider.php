@@ -25,25 +25,35 @@ class SecurityProvider implements ProviderInterface
 
     public function __construct(array $options = array())
     {
+        $this->options = $options;
+    }
+
+    private function resolve_options($app)
+    {
         $default = array(
             'provider' => array(
-                'Larium\Security\User\InMemoryUserProvider',
+                '\Larium\Security\User\InMemoryUserProvider',
                 array(
                     array(
-                        'username'=>'andreas',
-                        'password'=>'root',
-                        'roles' => array(
-                            'ROLE_ADMIN'
+                        array(
+                            'username'=>'andreas',
+                            'password'=>'root',
+                            'roles' => array(
+                                'ROLE_ADMIN'
+                            )
                         )
                     )
                 )
             ),
             'storage' => array(
-                'Larium\Security\Storage\SessionStorage',
-                array()
+                '\Larium\Security\Storage\SessionStorage',
+                array(
+                    'sess_auth',
+                    $app['app.session']
+                )
             ),
             'encoder' => array(
-                'Larium\Security\Encoder\PlainTextEncoder',
+                '\Larium\Security\Encoder\PlainTextEncoder',
                 array()
             ),
             'token_key' => 'sess_auth',
@@ -56,9 +66,8 @@ class SecurityProvider implements ProviderInterface
             )
         );
 
-        $this->options = array_merge($default, $options);
+        $this->options = array_merge($default, $this->options);
         $this->firewall = $this->options['firewall'];
-
     }
 
     public function register(App $app)
@@ -73,19 +82,21 @@ class SecurityProvider implements ProviderInterface
 
     public function boot(App $app)
     {
+        $this->resolve_options($app);
+
         $firewall = $this->firewall;
 
         $app->getExecutor()->addCommand(WebHandler::ON_REQUEST, function($message) use ($app, $firewall) {
 
             list($provider_class, $provider_params) = $this->options['provider'];
-            $provider = new $provider_class($provider_params);
+            $provider = $this->create_instance_from_class($provider_class, $provider_params);
 
             list($storage_class, $storage_params) = $this->options['storage'];
-            if (empty($storage_params)) {
+            $storage = $this->create_instance_from_class($storage_class, $storage_params);
 
-            }
-            $storage = new SessionStorage($this->options['token_key'], $app['app.session']);
-            $encoder = new PlainTextEncoder();
+            list($encoder_class, $encoder_params) = $this->options['encoder'];
+            $encoder = $this->create_instance_from_class($encoder_class, $encoder_params);
+
             $service = new AuthenticationService($provider, $storage, $encoder);
 
             $path = $message->getRequest()->getPath();
@@ -134,5 +145,12 @@ class SecurityProvider implements ProviderInterface
 
 
         });
+    }
+
+    private function create_instance_from_class($class, array $params = array())
+    {
+        $ref = new \ReflectionClass($class);
+
+        return $ref->newInstanceArgs($params);
     }
 }
