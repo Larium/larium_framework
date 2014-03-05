@@ -88,14 +88,11 @@ class SecurityProvider implements ProviderInterface
 
         $app->getExecutor()->addCommand(WebHandler::ON_REQUEST, function($message) use ($app, $firewall) {
 
-            list($provider_class, $provider_params) = $this->options['provider'];
-            $provider = $this->create_instance_from_class($provider_class, $provider_params);
+            $provider = $this->create_instance_from_class($this->options['provider']);
 
-            list($storage_class, $storage_params) = $this->options['storage'];
-            $storage = $this->create_instance_from_class($storage_class, $storage_params);
+            $storage = $this->create_instance_from_class($this->options['storage']);
 
-            list($encoder_class, $encoder_params) = $this->options['encoder'];
-            $encoder = $this->create_instance_from_class($encoder_class, $encoder_params);
+            $encoder = $this->create_instance_from_class($this->options['encoder']);
 
             $service = new AuthenticationService($provider, $storage, $encoder);
 
@@ -147,8 +144,10 @@ class SecurityProvider implements ProviderInterface
         });
     }
 
-    private function create_instance_from_class($class, array $params = array())
+    private function create_instance_from_class(array $options)
     {
+        list($class, $params) = $options;
+
         $ref = new \ReflectionClass($class);
 
         return $ref->newInstanceArgs($params);
