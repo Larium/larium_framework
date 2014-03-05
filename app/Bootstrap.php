@@ -8,7 +8,8 @@ class Bootstrap
     {
         // Register your providers here
 
-        // Session
+        // Session should be registered on top, if want access to it in other
+        // providers.
         $app->addProvider(new SessionProvider());
 
         //Error handler
