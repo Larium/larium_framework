@@ -30,6 +30,13 @@ class App implements ArrayAccess
         $this->env = $env;
     }
 
+    /**
+     * Handles given request and returns the response as string.
+     *
+     * @param RequestInterface $request
+     * @access public
+     * @return string
+     */
     public function handle(RequestInterface $request)
     {
 
