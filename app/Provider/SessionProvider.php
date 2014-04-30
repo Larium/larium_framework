@@ -10,9 +10,13 @@ class SessionProvider implements ProviderInterface
 {
     public function register(App $app)
     {
-        $handler = new FileSessionHandler();
-        $session = new Session($handler);
-        $app['app.session'] = $session;
+
+        $app['app.session'] = function($c) {
+
+            $handler = new FileSessionHandler();
+
+            return new Session($handler);
+        }
     }
 
     public function boot(App $app)

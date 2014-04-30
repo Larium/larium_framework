@@ -9,7 +9,7 @@ use Larium\Controller\CommandResolver;
 use Larium\Route\Router;
 use Larium\Http\Response;
 
-class App implements ArrayAccess
+class App extends Pimple
 {
     protected $env;
 
@@ -206,30 +206,5 @@ class App implements ArrayAccess
     public function getConfig()
     {
         return $this->config;
-    }
-
-    /* -(  ArrayAccess  )--------------------------------------------------- */
-
-    public function offsetSet($id, $value)
-    {
-        $this->values[$id] = $value;
-    }
-
-    public function offsetExists($id)
-    {
-        return array_key_exists($id, $this->values);
-    }
-
-    public function offsetUnset($id) {
-        unset($this->values[$id]);
-    }
-
-    public function offsetGet($id)
-    {
-        if (!$this->offsetExists($id)) {
-            throw new InvalidArgumentException(sprintf('Value %s does not exist.', $id));
-        }
-
-        return $this->values[$id];
     }
 }
