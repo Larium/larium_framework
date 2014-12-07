@@ -2,8 +2,11 @@
 
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 
+namespace Core\Provider;
+
 use Larium\Http\Response;
 use Larium\Controller\WebHandler;
+use Core\App;
 
 class ExceptionProvider implements ProviderInterface
 {

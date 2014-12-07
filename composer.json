@@ -56,10 +56,19 @@
         "php": ">=5.4",
         "filp/whoops": "1.0.*",
         "pimple/pimple": "2.0.*",
-        "ruckusing/ruckusing-migrations": "*"
+        "ruckusing/ruckusing-migrations": "*",
+        "larium/activerecord": "*",
+        "larium/controller": "*",
+        "larium/form": "*",
+        "larium/http": "*",
+        "larium/security": "*",
+        "larium/validation": "*"
     },
     "minimum-stability": "dev",
     "autoload": {
-        "classmap": ["app", "app/Controller", "app/Model", "app/Provider", "lib"] 
+        "psr-0": {
+            "Acme\\": "src/",
+            "Core\\": "src/"
+        }
     }
 }

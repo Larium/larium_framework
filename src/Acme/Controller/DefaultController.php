@@ -2,13 +2,16 @@
 
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 
-use Larium\Controller\ActionController;
+namespace Acme\Controller;
 
+use Core\Controller\ApplicationController;
 use Larium\Http\Request;
 use Larium\Http\Response;
 
-class DefaultController extends ActionController
+class DefaultController extends ApplicationController
 {
+    public $message;
+
     public function index(Request $request)
     {
         return new Response('Hello World from ' . $request->getFullHost());
@@ -21,7 +24,9 @@ class DefaultController extends ActionController
 
     public function showAction(Request $request)
     {
-        //return new Response('Hello World');
+        $message = 'Hello world';
+
+        return $this->render('default/show', ['message' => $message]);
     }
 
     public function loginAction()

@@ -1,9 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "50f9a3ed26f6f769a2acaecf2321d8da",
+    "hash": "f0af48699de2a0d5113e4a81659710f4",
     "packages": [
         {
             "name": "filp/whoops",
@@ -55,6 +56,363 @@
                 "zf2"
             ],
             "time": "2013-12-04 14:19:30"
+        },
+        {
+            "name": "ircmaxell/password-compat",
+            "version": "1.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ircmaxell/password_compat.git",
+                "reference": "9b99377557a33a4129c9194e60a97a685fab21e0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ircmaxell/password_compat/zipball/9b99377557a33a4129c9194e60a97a685fab21e0",
+                "reference": "9b99377557a33a4129c9194e60a97a685fab21e0",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "lib/password.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anthony Ferrara",
+                    "email": "ircmaxell@php.net",
+                    "homepage": "http://blog.ircmaxell.com"
+                }
+            ],
+            "description": "A compatibility library for the proposed simplified password hashing algorithm: https://wiki.php.net/rfc/password_hash",
+            "homepage": "https://github.com/ircmaxell/password_compat",
+            "keywords": [
+                "hashing",
+                "password"
+            ],
+            "time": "2014-11-20 19:18:42"
+        },
+        {
+            "name": "larium/activerecord",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:Larium/larium_activerecord.git",
+                "reference": "91c260bcf905c1dc73e52777a19ae00462beea87"
+            },
+            "require": {
+                "larium/database": "*",
+                "larium/executor": "*",
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Larium\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Kollaros",
+                    "email": "andreaskollaros@ymail.com"
+                }
+            ],
+            "description": "Implementation of Active Record Design Pattern",
+            "keywords": [
+                "active record"
+            ],
+            "time": "2014-09-02 16:34:30"
+        },
+        {
+            "name": "larium/controller",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:Larium/larium_controller.git",
+                "reference": "9b0d5be250fa15c5ff77e8228f54080f11caab03"
+            },
+            "require": {
+                "larium/executor": "*",
+                "larium/routing": "*",
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Larium\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Kollaros",
+                    "email": "andreaskollaros@ymail.com"
+                }
+            ],
+            "description": "Implementation of front controller design pattern",
+            "time": "2014-07-17 08:20:48"
+        },
+        {
+            "name": "larium/database",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:Larium/larium_database.git",
+                "reference": "fdef64d89b05303e3128df9300a6c301476665de"
+            },
+            "require": {
+                "ext-mysqli": "*",
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Larium\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Kollaros",
+                    "email": "andreas.kollaros@gmail.com"
+                }
+            ],
+            "description": "Database Abstraction Layer",
+            "keywords": [
+                "database"
+            ],
+            "time": "2014-10-24 09:34:02"
+        },
+        {
+            "name": "larium/executor",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:Larium/larium_executor.git",
+                "reference": "758248108d225661531dd13222e6a394d67eb859"
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Larium\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Kollaros",
+                    "email": "andreaskollaros@ymail.com"
+                }
+            ],
+            "description": "Implementation of mediator design pattern.",
+            "time": "2014-05-17 20:33:45"
+        },
+        {
+            "name": "larium/form",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:Larium/larium_form.git",
+                "reference": "3f0bfe3acf60bb25c0991bfabc4a01dffd305757"
+            },
+            "require": {
+                "larium/template": "*",
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Larium\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Kollaros",
+                    "email": "andreaskollaros@ymail.com"
+                }
+            ],
+            "keywords": [
+                "builder",
+                "forms"
+            ],
+            "time": "2014-10-31 15:55:54"
+        },
+        {
+            "name": "larium/http",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:Larium/larium_http.git",
+                "reference": "4fac0aef4052721a660fa4bd49dbe2ec57753e3d"
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Larium\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Kollaros",
+                    "email": "andreaskollaros@ymail.com"
+                }
+            ],
+            "description": "Larium http library",
+            "time": "2014-08-29 08:10:55"
+        },
+        {
+            "name": "larium/routing",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:Larium/larium_routing.git",
+                "reference": "d838c54a2f380990476b0a64ce2d300ea5626307"
+            },
+            "require": {
+                "larium/http": "*",
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Larium\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Kollaros",
+                    "email": "andreaskollaros@ymail.com"
+                }
+            ],
+            "description": "Larium routing library",
+            "time": "2014-10-09 12:46:55"
+        },
+        {
+            "name": "larium/security",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:Larium/larium_security.git",
+                "reference": "3d0f668f6896b78ba806683927c0e5caf0f56f20"
+            },
+            "require": {
+                "ircmaxell/password-compat": "1.0.*",
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Larium\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Kollaros",
+                    "email": "andreaskollaros@ymail.com"
+                }
+            ],
+            "description": "Larium security library",
+            "keywords": [
+                ""
+            ],
+            "time": "2014-09-10 08:54:14"
+        },
+        {
+            "name": "larium/template",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:Larium/larium_template.git",
+                "reference": "47183e3ceae2ddf1c14fa6d1153192896c9296ad"
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Larium\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Kollaros",
+                    "email": "andreaskollaros@ymail.com"
+                }
+            ],
+            "keywords": [
+                "template"
+            ],
+            "time": "2014-04-30 20:25:37"
+        },
+        {
+            "name": "larium/validation",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:Larium/larium_validation.git",
+                "reference": "78ddcae2032099dde18ccaef488704fe87a82ab2"
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Larium\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Kollaros",
+                    "email": "andreaskollaros@ymail.com"
+                }
+            ],
+            "description": "Larium validation library",
+            "keywords": [
+                ""
+            ],
+            "time": "2014-08-03 11:38:08"
         },
         {
             "name": "pimple/pimple",
@@ -110,12 +468,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ruckus/ruckusing-migrations.git",
-                "reference": "75191af0eeac443d71ce6ea5c153671abf1bd421"
+                "reference": "5987020be2878e6ae2a8bd9c9ef12fc2a901a933"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ruckus/ruckusing-migrations/zipball/75191af0eeac443d71ce6ea5c153671abf1bd421",
-                "reference": "75191af0eeac443d71ce6ea5c153671abf1bd421",
+                "url": "https://api.github.com/repos/ruckus/ruckusing-migrations/zipball/5987020be2878e6ae2a8bd9c9ef12fc2a901a933",
+                "reference": "5987020be2878e6ae2a8bd9c9ef12fc2a901a933",
                 "shasum": ""
             },
             "require": {
@@ -157,23 +515,16 @@
                 "ruckusing",
                 "task"
             ],
-            "time": "2014-04-28 19:22:42"
+            "time": "2014-07-22 15:38:14"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
+    "packages-dev": [],
+    "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [
-
-    ],
+    "stability-flags": [],
+    "prefer-stable": false,
     "platform": {
         "php": ">=5.4"
     },
-    "platform-dev": [
-
-    ]
+    "platform-dev": []
 }

@@ -2,6 +2,8 @@
 
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 
+namespace Core\Provider;
+
 use Larium\Route\Route;
 use Larium\Controller\WebHandler;
 use Larium\Http\RedirectResponse;
@@ -11,6 +13,7 @@ use Larium\Security\Encoder\BCryptEncoder;
 use Larium\Security\Encoder\PlainTextEncoder;
 use Larium\Security\Authentication\AuthenticationService;
 use Larium\Security\User\UserNotFoundException;
+use Core\App;
 
 class SecurityProvider implements ProviderInterface
 {

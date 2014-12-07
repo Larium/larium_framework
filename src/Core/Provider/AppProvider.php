@@ -2,8 +2,11 @@
 
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 
+namespace Core\Provider;
+
 use Larium\Controller\WebHandler;
 use Larium\Controller\ContainerAwareInterface;
+use Core\App;
 
 class AppProvider implements ProviderInterface
 {

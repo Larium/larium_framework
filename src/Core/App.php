@@ -2,12 +2,15 @@
 
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 
+namespace Core;
+
 use Larium\Http\RequestInterface;
 use Larium\Controller\WebHandler;
 use Larium\Executor\Executor;
 use Larium\Controller\CommandResolver;
 use Larium\Route\Router;
 use Larium\Http\Response;
+use Pimple;
 
 class App extends Pimple
 {
@@ -41,13 +44,12 @@ class App extends Pimple
     {
 
         $this->config = new Config(array(
-            'app_path' => __DIR__,
-            'web_path' => __DIR__ . '/../web',
-            'views_path' =>  __DIR__ . '/View',
-            'config_path' => __DIR__ . '/../config'
+            'web_path' => __DIR__ . '/../../web',
+            'views_path' =>  __DIR__ . '/../../views',
+            'config_path' => __DIR__ . '/../../config',
+            'log_path' => __DIR__ . '/../../var/logs',
+            'cache_path' => __DIR__ . '/../../var/cache'
         ));
-
-        //$this->register_app_classes();
 
         //config default routing
         $this->config_routing();
@@ -76,15 +78,6 @@ class App extends Pimple
         }
     }
 
-    private function register_app_classes()
-    {
-        $controllers = new SplClassLoader(null, realpath($this->config->app_path . '/Controller'));
-        $controllers->register();
-
-        $models = new SplClassLoader(null, realpath($this->config->app_path. '/Model'));
-        $models->register();
-    }
-
     private function config_routing()
     {
         if (null === $this->resolver) {
@@ -101,7 +94,7 @@ class App extends Pimple
         }
     }
 
-    public function addProvider(ProviderInterface $provider)
+    public function addProvider(Provider\ProviderInterface $provider)
     {
         $name = strtolower(get_class($provider));
         $this->providers[$name] = $provider;
@@ -117,7 +110,6 @@ class App extends Pimple
     }
 
     // Setters Getters for instances
-    //
 
     /**
      * Gets executor.
@@ -206,5 +198,10 @@ class App extends Pimple
     public function getConfig()
     {
         return $this->config;
+    }
+
+    public function get($name)
+    {
+        return $this->offsetGet($name);
     }
 }

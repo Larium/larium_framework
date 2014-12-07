@@ -2,9 +2,12 @@
 
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 
+namespace Core\Provider;
+
 use Larium\Controller\WebHandler;
 use Larium\Http\Session\Session;
 use Larium\Http\Session\Handler\FileSessionHandler;
+use Core\App;
 
 class SessionProvider implements ProviderInterface
 {
@@ -16,7 +19,7 @@ class SessionProvider implements ProviderInterface
             $handler = new FileSessionHandler();
 
             return new Session($handler);
-        }
+        };
     }
 
     public function boot(App $app)

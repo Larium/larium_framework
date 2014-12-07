@@ -1,4 +1,8 @@
-homepage:
+home:
+    pattern: '/'
+    route: {controller: 'Default', action: 'indexAction'}
+    method: 'GET'
+page:
     pattern: '/:slug'
     route: {controller: 'Default', action: 'indexAction'}
     method: 'GET'

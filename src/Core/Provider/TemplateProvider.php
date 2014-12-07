@@ -2,7 +2,10 @@
 
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 
-use Tripiko\View\View;
+namespace Core\Provider;
+
+use Larium\View\View;
+use Core\App;
 
 class TemplateProvider implements ProviderInterface
 {
@@ -10,11 +13,8 @@ class TemplateProvider implements ProviderInterface
     {
         $app['app.view'] = function($c) {
 
-            return new View($app->getConfig()->views_path);
-        }
-
-        $urlHelper->setContainer($app);
-        $urlHelper = UrlHelper::register($app['app.view']);
+            return new View($c->getConfig()->views_path);
+        };
     }
 
     public function boot(App $app)
