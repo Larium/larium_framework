@@ -2,7 +2,7 @@
     "name": "larium/framework",
     "description": "Implementation of MVC design pattern.",
     "keywords": ["larium", "framework"],
-    "type": "",
+    "type": "framework",
     "license": "MIT",
     "authors": [
         {
@@ -10,56 +10,23 @@
             "email": "andreaskollaros@ymail.com"
         }
     ],
-    "repositories": [
-        {
-            "url": "git@github.com:Larium/larium_activerecord.git",
-            "type": "git"
-        },
-        {
-            "url": "git@github.com:Larium/larium_controller.git",
-            "type": "git"
-        },
-        {
-            "url": "git@github.com:Larium/larium_database.git",
-            "type": "git"
-        },
-        {
-            "url": "git@github.com:Larium/larium_executor.git",
-            "type": "git"
-        },
-        {
-            "url": "git@github.com:Larium/larium_form.git",
-            "type": "git"
-        },
-        {
-            "url": "git@github.com:Larium/larium_http.git",
-            "type": "git"
-        },
-        {
-            "url": "git@github.com:Larium/larium_routing.git",
-            "type": "git"
-        },
-        {
-            "url": "git@github.com:Larium/larium_security.git",
-            "type": "git"
-        },
-        {
-            "url": "git@github.com:Larium/larium_template.git",
-            "type": "git"
-        },
-        {
-            "url": "git@github.com:Larium/larium_validation.git",
-            "type": "git"
-        }
-    ],
     "require": {
-        "php": ">=5.4",
-        "filp/whoops": "1.0.*",
+        "php": ">=5.6",
+        "larium/activerecord": "^1.0",
+        "larium/controller": "*",
+        "larium/executor": "^1.0",
+        "larium/form": "*",
+        "larium/http": "*",
+        "larium/routing": "*",
+        "larium/security": "*",
+        "larium/template": "*",
+        "larium/validation": "*",
+        "filp/whoops": "^2.0",
         "pimple/pimple": "2.0.*",
         "ruckusing/ruckusing-migrations": "*"
     },
     "minimum-stability": "dev",
     "autoload": {
-        "classmap": ["app", "app/Controller", "app/Model", "app/Provider", "lib"] 
+        "classmap": ["app", "app/Controller", "app/Model", "app/Provider", "lib"]
     }
 }
